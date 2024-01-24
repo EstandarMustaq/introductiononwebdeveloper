@@ -1,218 +1,233 @@
 <!DOCTYPE html>
 <html lang="pt">
+
 <head>
-    <style>
-    /* geral style */
-    
-    :root {
-      --cor1: #7655aa;
-      --cor2: #aa1099;
-    }
+	<style>
+		/* geral style */
+		@charset "UTF-8";
+		@import url('https://fonts.googleapis.com/css2?family=Play:wght@700&family=Ubuntu&display=swap');
 
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: "Georgia";
-        font-size: 1rem;
-    }
-    
-    body {
-        display: flex;
-        flex-wrap: wrap;
-    }
-    
-    #n-container {
-        flex: 0.8;
-        padding: 1rem 2rem;
-    }
-    
-    #n-container h1 {
-        background-color: yellow;
-        color: red;
-        font-size: 3rem;
-        max-width: 100px;
-        margin-bottom: 1.5rem;
-        border-radius: 15px;
-        margin-top: 2rem;
-    }
 
-    #n-container h2 {
-        text-transform: uppercase;
-        color: #0073aa;
-        font-weight: bold;
-        font-size: 2rem;
-        max-width: 500px;
-        margin-bottom: 0.5rem;
-    }
+		:root {
+			--cor1: #7655aa;
+			--cor2: #aa1099;
+		}
 
-    #n-container h4 {
-        margin-bottom: 0.5rem;
-    }
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+			font-family: "Ubuntu", sans-serif;
+			font-size: 1rem;
+		}
 
-    #n-container p {
-        margin-top: 0.5rem;
-        font-size: 1rem;
-        max-width: 700px;
-        margin-bottom: 0.5rem;
-        line-height: 1.5rem;
-    }
+		body {
+			display: flex;
+			flex-wrap: wrap;
+		}
 
-    #date {
-        color: #353131;
-        margin-bottom: 0.5rem;
-        font-family: Arial, Helvetica, sans-serif;
-    }
+		#n-container {
+			flex: 0.8;
+			padding: 1rem 2rem;
+		}
 
-    .line {
-        margin-bottom: 0.5rem;
-        line-height: 1.3rem;
-        margin-left: 4.9rem;
-    }
+		#n-container h1 {
+			background-color: yellow;
+			color: red;
+			font-size: 3rem;
+			max-width: 100px;
+			margin-bottom: 1.5rem;
+			border-radius: 15px;
+			margin-top: 2rem;
+			font-family: 'Play', sans-serif;
+		}
 
-    #imag-container {
-        flex: 0.4;
-        max-width: 100%;
-        height: auto;
-    }
+		#n-container h2 {
+			text-transform: uppercase;
+			color: #0073aa;
+			font-weight: bold;
+			font-size: 2rem;
+			max-width: 500px;
+			margin-bottom: 0.5rem;
+			font-family: 'Play', sans-serif;
+		}
 
-    img {
-        max-width: 100%;
-        height: auto;
-        border-radius: 5px;
-        padding: 1px;
-        margin-top: 0.5rem;
-    }
+		#n-container h4 {
+			margin-bottom: 0.5rem;
+			font-family: 'Play', sans-serif;
+		}
 
-    .link {
-        margin-bottom: 1rem;
-        font-size: 1.2rem;
-        color: #16caaa;
-        text-decoration-line: none;
-        font-family: Arial, Helvetica, sans-serif;
-    }
+		#n-container p {
+			margin-top: 0.5rem;
+			font-size: 1rem;
+			max-width: 700px;
+			margin-bottom: 0.5rem;
+			line-height: 1.5rem;
+		}
 
-    #imag-container p {
-        margin-top: 0.5rem;
-        font-size: 1rem;
-        max-width: 700px;
-        margin-bottom: 0.5rem;
-        line-height: 1.5rem;
-    }
+		#date {
+			color: #353131;
+			margin-bottom: 0.5rem;
+			font-family: Arial, Helvetica, sans-serif;
+		}
 
-    #imag-inner {
-        color: #ccc;      
-    }
+		.line {
+			margin-bottom: 0.5rem;
+			line-height: 1.3rem;
+			margin-left: 4.9rem;
+		}
 
-    .center {
-        text-align: start;
-        margin-left: 3.8rem;
-    }
+		#imag-container {
+			flex: 0.4;
+			max-width: 100%;
+			height: auto;
+		}
 
-    #margin-left {
-        margin-left: 2rem;
-    }
+		img {
+			max-width: 100%;
+			height: auto;
+			border-radius: 5px;
+			padding: 1px;
+			margin-top: 0.5rem;
+		}
 
-    /* background imag-container */
-    #imag-container {
-        background-image: url(img/bg.jpg);
-    }
+		.link {
+			margin-bottom: 1rem;
+			font-size: 1.2rem;
+			color: #16caaa;
+			text-decoration-line: none;
+			font-family: Arial, Helvetica, sans-serif;
+		}
 
-    /* responsivo max-width 450px */
-    
-    @media (max-width: 450px) {
-        * {
-            font-size: 1rem;
-        }
-    
-    
-        body {
-            flex-direction: column;
-        }
+		#imag-container p {
+			margin-top: 0.5rem;
+			font-size: 1rem;
+			max-width: 700px;
+			margin-bottom: 0.5rem;
+			line-height: 1.5rem;
+		}
 
-    
-        #n-container {
-            padding: 2rem;
-            background-image: linear-gradient(60deg, var(--cor2), var(--cor1));
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            height: 100vh;
-        }
+		#imag-inner {
+			color: #ccc;
+		}
 
-    
-        #imag-container {
-            font-size: 1rem;
-        }
+		.center {
+			text-align: start;
+			margin-left: 3.8rem;
+		}
 
-        img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 30px;
-            padding: 27px;
-        }
+		#margin-left {
+			margin-left: 2rem;
+		}
 
-        #margin-left {
-            margin-left: 1.8rem;
-        }
+		/* background imag-container */
+		#imag-container {
+			background-image: url(img/bg.jpg);
+		}
 
-        .center {
-            text-align: start;
-            margin-left: 3.5rem;
-        }
+		/* responsivo max-width 450px */
 
-        #n-container h1 {
-            background-color: yellow;
-            color: red;
-            font-size: 2rem;
-            max-width: 100px;
-            margin-bottom: 1rem;
-            margin-top: 2rem;
-        }
+		@media (max-width: 768px) {
+			* {
+				font-size: 1rem;
+			}
 
-        .line {
-            margin-bottom: 0.5rem;
-            line-height: 1.3rem;
-            margin-left: 4.6rem;
-        }
-    }
-    </style>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>freenews</title>
+
+			body {
+				flex-direction: column;
+			}
+
+
+			#n-container {
+				padding: 2rem;
+				background-image: linear-gradient(60deg, var(--cor2), var(--cor1));
+				background-repeat: no-repeat;
+				background-attachment: fixed;
+				height: 100vh;
+			}
+
+
+			#imag-container {
+				font-size: 1rem;
+			}
+
+			img {
+				max-width: 100%;
+				height: auto;
+				border-radius: 30px;
+				padding: 27px;
+			}
+
+			#margin-left {
+				margin-left: 1.8rem;
+			}
+
+			.center {
+				text-align: start;
+				margin-left: 3.5rem;
+			}
+
+			#n-container h1 {
+				background-color: yellow;
+				color: red;
+				font-size: 2rem;
+				max-width: 100px;
+				margin-bottom: 1rem;
+				margin-top: 2rem;
+				font-family: 'play',
+					sans-serif;
+			}
+
+			.line {
+				margin-bottom: 0.5rem;
+				line-height: 1.3rem;
+				margin-left: 4.6rem;
+			}
+		}
+	</style>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>freenews</title>
 </head>
+
 <body>
-    <div id="n-container">
-        <div id="n-inner">
-            <h1>Workshop Virtual</h1>
-            <h2>Code Like a Girl</h2>
-            <h4>Capacitação, Empoderamento, Tecnologia!</h4>
-            <p>Apresentamos o "Code Like a Girl", uma iniciativa da Vodacom Moçambique em parceria com a MOZDEVZ, WansatiLab e Maputo Frontenders , que vai abrir as portas do mundo da programação para todas a meninas entre os 14 e 18 anos de idade.</p>
-            <p>Convidamos-te a inscreve-se para uma formação de 7 dias que te levará a numa jornada inesquecível de aprendizado através da Ciência, Tecnologia, Engenharia e Matemética (STEM).</p>
-            <p>O Code Like a Girl é uma oportunidade única para que elas possam expandir suas habilidades e aprenderem com profissionais experientes a explorarem um mundo de possibilidades nas àreas STEM!
-            </p>
-            <ul>
-                <li class="line">Juntos construímos uma geração tecnológica mais inclusiva</li>
-                <li class="line">Inscreva sua educanda e partilhe esta oportunidade.</li>
-            </ul>
-            <i id="date">22 a 23 de Agosto de 2023 | 8:00h-11:00h e 14:00h-17:00h | Formato: Remoto/Online</i>
-            <a class="link" href="https://bit.ly/code-like-girl-2023">Click aqui para escrever-se</a>
-        </div>
-    </div>
-    <div id="imag-container">
-        <div id="imag-inner">
-            <img src="img/imag2.jpg"/>
-            <p id="margin-left">Não perca esta chance de engajar-se na STEM!</p>
-            <p id="margin-left"><strong>Nota:</strong></p>
-            <ul>
-                <li class="line">Aprenda a programar em 7 dias!</li>
-                <li class="line">O evento é estremente gratuito</li>
-            </ul>
-            <p id="margin-left"><strong>Iniciativa:</strong></p>
-            <p class="center">Vodacom Moçambique</p>
-            <P id="margin-left"><strong>Parceiros:</strong></P>
-            <p class="center">MOZDEVZ, WansatiLab e Frontenders</p>
-        </div>
-    </div>   
+	<div id="n-container">
+		<div id="n-inner">
+			<h1>Workshop Virtual</h1>
+			<h2>Code Like a Girl</h2>
+			<h4>Capacitação, Empoderamento, Tecnologia!</h4>
+			<p>Apresentamos o "Code Like a Girl", uma iniciativa da Vodacom Moçambique em parceria com a MOZDEVZ,
+				WansatiLab e Maputo Frontenders , que vai abrir as portas do mundo da programação para todas a meninas
+				entre os 14 e 18 anos de idade.</p>
+			<p>Convidamos-te a inscreve-se para uma formação de 7 dias que te levará a numa jornada inesquecível de
+				aprendizado através da Ciência, Tecnologia, Engenharia e Matemética (STEM).</p>
+			<p>O Code Like a Girl é uma oportunidade única para que elas possam expandir suas habilidades e aprenderem
+				com profissionais experientes a explorarem um mundo de possibilidades nas àreas STEM!
+			</p>
+			<ul>
+				<li class="line">Juntos construímos uma geração tecnológica mais inclusiva</li>
+				<li class="line">Inscreva sua educanda e partilhe esta oportunidade.</li>
+			</ul>
+			<i id="date">22 a 23 de Agosto de 2023 | 8:00h-11:00h e 14:00h-17:00h | Formato: Remoto/Online</i>
+			<a class="link" href="https://bit.ly/code-like-girl-2023">Click aqui para escrever-se</a>
+		</div>
+	</div>
+	<div id="imag-container">
+		<div id="imag-inner">
+			<img src="img/imag2.jpg" />
+			<p id="margin-left">Não perca esta chance de engajar-se na STEM!</p>
+			<p id="margin-left"><strong>Nota:</strong></p>
+			<ul>
+				<li class="line">Aprenda a programar em 7 dias!</li>
+				<li class="line">O evento é estremente gratuito</li>
+			</ul>
+			<p id="margin-left"><strong>Iniciativa:</strong></p>
+			<p class="center">Vodacom Moçambique</p>
+			<P id="margin-left"><strong>Parceiros:</strong></P>
+			<p class="center">MOZDEVZ, WansatiLab e Frontenders</p>
+		</div>
+	</div>
 </body>
+
 </html>
