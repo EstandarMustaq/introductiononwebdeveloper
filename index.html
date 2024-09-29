@@ -2,13 +2,17 @@
 <html lang="pt">
   <head>
     <style>
-      /* geral style */
+      /* Importação de fontes e definição de cores */
       @charset "UTF-8";
       @import url("https://fonts.googleapis.com/css2?family=Play:wght@700&family=Ubuntu&display=swap");
 
       :root {
-        --cor1: #7655aa;
-        --cor2: #aa1099;
+        --cor1: #f4f4f4; /* Fundo neutro */
+        --cor2: #333; /* Texto escuro */
+        --cor-hover: #555; /* Cor de hover no menu */
+        --highlight: #4a90e2; /* Destaque para links */
+        --footer-bg: #222; /* Fundo do rodapé */
+        --menu-bg: #333; /* Fundo do menu */
       }
 
       * {
@@ -20,162 +24,191 @@
       }
 
       body {
+        background-color: var(--cor1);
+        color: var(--cor2);
+        line-height: 1.6;
         display: flex;
-        flex-wrap: wrap;
+        flex-direction: column;
+        min-height: 100vh;
       }
 
+      /* Estilo do menu */
+      nav {
+        background-color: var(--menu-bg);
+        padding: 1rem;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+        z-index: 1000;
+      }
+
+      nav .logo {
+        color: white;
+        font-size: 1.5rem;
+        text-decoration: none;
+        font-family: "Play", sans-serif;
+      }
+
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+      }
+
+      nav ul li {
+        position: relative;
+      }
+
+      nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-size: 1.1rem;
+        padding: 0.5rem 1rem;
+        transition: background-color 0.3s ease;
+        cursor: pointer;
+      }
+
+      nav ul li a:hover {
+        background-color: var(--cor-hover);
+        border-radius: 5px;
+      }
+
+      /* Estilo para o menu hamburguer */
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+        gap: 0.4rem;
+      }
+
+      .hamburger div {
+        width: 30px;
+        height: 3px;
+        background-color: white;
+        transition: all 0.3s ease;
+      }
+
+      /* Menu visível em dispositivos móveis */
+      #nav-menu {
+        display: none;
+        flex-direction: column;
+        gap: 1rem;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: var(--menu-bg);
+        width: 100%;
+        padding: 1rem 0;
+      }
+
+      #nav-menu.show {
+        display: flex;
+      }
+
+      /* Conteúdo principal */
       #n-container {
-        flex: 0.8;
-        padding: 1rem 2rem;
+        flex: 1;
+        padding: 2rem;
       }
 
       #n-container h1 {
-        background-color: yellow;
-        color: red;
-        font-size: 3rem;
-        max-width: 100px;
+        color: var(--highlight);
+        font-size: 2.5rem;
         margin-bottom: 1.5rem;
-        border-radius: 15px;
-        margin-top: 2rem;
         font-family: "Play", sans-serif;
       }
 
       #n-container h2 {
         text-transform: uppercase;
-        color: #0073aa;
+        color: var(--cor-hover);
         font-weight: bold;
         font-size: 2rem;
-        max-width: 500px;
-        margin-bottom: 0.5rem;
-        font-family: "Play", sans-serif;
-      }
-
-      #n-container h4 {
         margin-bottom: 0.5rem;
         font-family: "Play", sans-serif;
       }
 
       #n-container p {
         margin-top: 0.5rem;
-        font-size: 1rem;
         max-width: 700px;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1rem;
         line-height: 1.5rem;
       }
 
       #date {
-        color: #353131;
+        color: #555;
         margin-bottom: 0.5rem;
         font-family: Arial, Helvetica, sans-serif;
       }
 
-      .line {
-        margin-bottom: 0.5rem;
-        line-height: 1.3rem;
-        margin-left: 4.9rem;
+      /* Estilo do rodapé */
+      footer {
+        background-color: var(--footer-bg);
+        color: white;
+        padding: 2rem;
+        text-align: center;
+        width: 100%;
       }
 
-      #imag-container {
-        flex: 0.4;
-        max-width: 100%;
-        height: auto;
+      footer a {
+        color: var(--highlight);
+        text-decoration: none;
       }
 
-      img {
-        max-width: 100%;
-        height: auto;
-        border-radius: 5px;
-        padding: 1px;
-        margin-top: 0.5rem;
+      footer a:hover {
+        text-decoration: underline;
       }
 
-      .link {
-        margin-bottom: 1rem;
-        font-size: 1.2rem;
-        color: #16caaa;
-        text-decoration-line: none;
-        font-family: Arial, Helvetica, sans-serif;
+      footer ul {
+        list-style: none;
+        padding: 0;
+        margin: 1rem 0;
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
       }
 
-      #imag-container p {
-        margin-top: 0.5rem;
-        font-size: 1rem;
-        max-width: 700px;
-        margin-bottom: 0.5rem;
-        line-height: 1.5rem;
+      footer ul li {
+        display: inline;
       }
 
-      #imag-inner {
-        color: #ccc;
+      footer p.author {
+        margin-top: 1rem;
+        font-style: italic;
+        font-size: 0.9rem;
       }
 
-      .center {
-        text-align: start;
-        margin-left: 3.8rem;
-      }
-
-      #margin-left {
-        margin-left: 2rem;
-      }
-
-      /* background imag-container */
-      #imag-container {
-        background-image: url(img/bg.jpg);
-      }
-
-      /* responsivo max-width 480px */
-
-      @media (max-width: 480px) {
-        * {
-          font-size: 1rem;
+      /* Responsividade */
+      @media (max-width: 768px) {
+        nav ul {
+          display: none;
         }
 
-        body {
-          flex-direction: column;
+        .hamburger {
+          display: flex;
+        }
+
+        /* Transição para o efeito de menu hambúrguer */
+        .hamburger.active div:nth-child(1) {
+          transform: translateY(9px) rotate(45deg);
+        }
+
+        .hamburger.active div:nth-child(2) {
+          opacity: 0;
+        }
+
+        .hamburger.active div:nth-child(3) {
+          transform: translateY(-9px) rotate(-45deg);
         }
 
         #n-container {
-          padding: 2rem;
-          background-image: linear-gradient(60deg, var(--cor2), var(--cor1));
-          background-repeat: no-repeat;
-          background-attachment: fixed;
-          height: 100vh;
+          padding: 1.5rem;
         }
 
-        #imag-container {
-          font-size: 1rem;
-        }
-
-        img {
-          max-width: 100%;
-          height: auto;
-          border-radius: 30px;
-          padding: 27px;
-        }
-
-        #margin-left {
-          margin-left: 1.8rem;
-        }
-
-        .center {
-          text-align: start;
-          margin-left: 3.5rem;
-        }
-
-        #n-container h1 {
-          background-color: yellow;
-          color: red;
-          font-size: 2rem;
-          max-width: 100px;
-          margin-bottom: 1rem;
-          margin-top: 2rem;
-          font-family: "play", sans-serif;
-        }
-
-        .line {
-          margin-bottom: 0.5rem;
-          line-height: 1.3rem;
-          margin-left: 4.6rem;
+        footer ul {
+          flex-direction: column;
         }
       }
     </style>
@@ -186,58 +219,64 @@
   </head>
 
   <body>
+    <!-- Menu de navegação -->
+    <nav>
+      <div class="logo">FreeNews</div>
+      <ul id="nav-menu">
+        <li><a href="#">Início</a></li>
+        <li><a href="#">Notícias</a></li>
+        <li><a href="#">Contato</a></li>
+      </ul>
+      <div class="hamburger" id="hamburger">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </nav>
+
+    <!-- Conteúdo principal -->
     <div id="n-container">
-      <div id="n-inner">
-        <h1>Workshop Virtual</h1>
-        <h2>Code Like a Girl</h2>
-        <h4>Capacitação, Empoderamento, Tecnologia!</h4>
-        <p>
-          Apresentamos o "Code Like a Girl", uma iniciativa da Vodacom
-          Moçambique em parceria com a MOZDEVZ, WansatiLab e Maputo Frontenders
-          , que vai abrir as portas do mundo da programação para todas a meninas
-          entre os 14 e 18 anos de idade.
-        </p>
-        <p>
-          Convidamos-te a inscreve-se para uma formação de 7 dias que te levará
-          a numa jornada inesquecível de aprendizado através da Ciência,
-          Tecnologia, Engenharia e Matemética (STEM).
-        </p>
-        <p>
-          O Code Like a Girl é uma oportunidade única para que elas possam
-          expandir suas habilidades e aprenderem com profissionais experientes a
-          explorarem um mundo de possibilidades nas àreas STEM!
-        </p>
-        <ul>
-          <li class="line">
-            Juntos construímos uma geração tecnológica mais inclusiva
-          </li>
-          <li class="line">
-            Inscreva sua educanda e partilhe esta oportunidade.
-          </li>
-        </ul>
-        <i id="date"
-          >22 a 23 de Agosto de 2023 | 8:00h-11:00h e 14:00h-17:00h | Formato:
-          Remoto/Online</i
-        >
-        <a class="link" href="https://bit.ly/code-like-girl-2023"
-          >Click aqui para escrever-se</a
-        >
-      </div>
+      <h1>Últimas Notícias</h1>
+      <h2>Workshop Virtual "Code Like a Girl"</h2>
+      <p>
+        Apresentamos o "Code Like a Girl", uma iniciativa da Vodacom Moçambique
+        em parceria com a MOZDEVZ, WansatiLab e Maputo Frontenders, que vai
+        abrir as portas do mundo da programação para todas as meninas entre 14 e
+        18 anos.
+      </p>
+      <p>
+        O evento oferece uma formação de 7 dias, levando as jovens numa jornada
+        de aprendizado nas áreas de Ciência, Tecnologia, Engenharia e Matemática
+        (STEM).
+      </p>
+      <i id="date">Publicado em: 22 de Agosto de 2023</i>
+      <a class="link" href="https://bit.ly/code-like-girl-2023"
+        >Clique aqui para mais detalhes</a
+      >
     </div>
-    <div id="imag-container">
-      <div id="imag-inner">
-        <img src="img/imag2.jpg" />
-        <p id="margin-left">Não perca esta chance de engajar-se na STEM!</p>
-        <p id="margin-left"><strong>Nota:</strong></p>
-        <ul>
-          <li class="line">Aprenda a programar em 7 dias!</li>
-          <li class="line">O evento é estremente gratuito</li>
-        </ul>
-        <p id="margin-left"><strong>Iniciativa:</strong></p>
-        <p class="center">Vodacom Moçambique</p>
-        <p id="margin-left"><strong>Parceiros:</strong></p>
-        <p class="center">MOZDEVZ, WansatiLab e Frontenders</p>
-      </div>
-    </div>
+
+    <!-- Rodapé -->
+    <footer>
+      <p>&copy; 2024 FreeNews. Todos os direitos reservados.</p>
+      <ul>
+        <li><a href="#">Início</a></li>
+        <li><a href="#">Notícias</a></li>
+        <li><a href="#">Contato</a></li>
+      </ul>
+      <p class="author">
+        Create by
+        <a href="https://github.com/EstandarMustaq/">Estandar Mustaq</a>
+      </p>
+    </footer>
+
+    <script>
+      const hamburger = document.getElementById("hamburger");
+      const navMenu = document.getElementById("nav-menu");
+
+      hamburger.addEventListener("click", () => {
+        navMenu.classList.toggle("show");
+        hamburger.classList.toggle("active");
+      });
+    </script>
   </body>
 </html>
